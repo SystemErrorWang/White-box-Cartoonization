@@ -28,53 +28,34 @@
 </div>
 
 <div class="paperimg"><img src="./paper/shinjuku.jpg"></div>
-<div class="longcaption">Examples of digital paintings and lighting effects created by professional artist manually. Digital painting artists are good at drawing lighting effects in various styles. From the perspective of computer graphics, can we generate artistic lighting effects on these drawn pictures to complement the current lighting composition workflow? Maybe we can first observe the artists' drawing process for some inspiration ......</div>
+<div class="longcaption">Result of our method: left is a frame in the animation "Garden of words", right is a real-world photo processed by our proposed method.</div>
 <div class="header">Abstract</div>
 <p>
 </p><div class="abstract">
-		We present an algorithm to generate digital painting lighting effects from a
-		single image. Our algorithm is based on a key observation: artists use many
-		overlapping strokes to paint lighting effects, i.e., pixels with dense stroke
-		history tend to gather more illumination strokes. Based on this observation,
-		we design an algorithm to both estimate the density of strokes in a digital
-		painting using color geometry, and then generate novel lighting effects by
-		mimicking artists' coarse-to-fine workflow. Coarse lighting effects are first
-		generated using a wave transform, and then retouched according to the
-		stroke density of the original illustrations into usable lighting effects.
+		This paper presents an approach for image cartooniza- tion. By observing the cartoon painting behavior and consulting artists, we propose to separately identify three white-box representations from images: the surface rep- resentation that contains a smooth surface of cartoon im- ages, the structure representation that refers to the sparse color-blocks and flatten global content in the celluloid style workflow, and the texture representation that reflects high- frequency texture, contours, and details in cartoon im- ages. A Generative Adversarial Network (GAN) framework is used to learn the extracted representations and to car- toonize images.
 		<br>
-		Our algorithm is content-aware, with generated lighting effects naturally
-		adapting to image structures, and can be used as an interactive tool to
-		simplify current labor-intensive workflows for generating lighting effects
-		for digital and matte paintings. In addition, our algorithm can also produce
-		usable lighting effects for photographs or 3D rendered images. We evaluate
-		our approach with both an in-depth qualitative and a quantitative analysis
-		which includes a perceptual user study. Results show that our proposed
-		approach is not only able to produce favorable lighting effects with respect
-		to existing approaches, but also that it is able to significantly reduce the
-		needed interaction time.
+		The learning objectives of our method are separately based on each extracted representations, making our frame- work controllable and adjustable. This enables our ap- proach to meet artists’ requirements in different styles and diverse use cases. Qualitative comparisons and quanti- tative analyses, as well as user studies, have been con- ducted to validate the effectiveness of this approach, and our method outperforms previous methods in all compar- isons. Finally, the ablation study demonstrates the influence of each component in our framework.
 </div>
 <div class="header">Files</div>
 <ul>
-<li> <a href="./files/TOG20PaintingLight.pdf">Paper</a> (13 MB PDF)</li>
-<li> <a href="./files/video.mp4">Download Video (8 minutes)</a> (53 MB MPEG-4)</li>
-<li> <a href="https://www.youtube.com/watch?v=X7li86oMBLA">Watch on YouTube</a> </li></ul>
+<li> <a href="./paper/06791.pdf">Paper</a> (9 MB PDF)</li>
+<li> <a href="./paper/06791-supp.pdf">Supplementary Material</a> (15 MB PDF)</li>
 <div class="header">See Also</div>
 <ul>
 
-<li> <a href="https://github.com/lllyasviel/PaintingLight">Source Code</a> - Core relighting algorithm only, version 0.1, several Python files. User interface not included. Licensed by Style2Paints for noncommercial research use only. This implementation reproduces the results in our main paper and video.</li>
+<li> <a href="https://github.com/SystemErrorWang/White-box-Cartoonization">Source Code</a> - Currently only inference code available.</li>
 
-<li> <a href="./files/ablative_animation.mp4">Animated Ablative Study</a> - Additional animated examples to help understanding the ablation study mentioned in main article.</li>
+<li> <a href="https://www.bilibili.com/video/av56708333">Video generated with early version of our work in bilibili.com.</li>
 
-<li> <a href="./files/sup.pdf">Supplementary Document</a> - A document of some additional methodology and experimental statistics.</li>
-
-<li> <a href="https://github.com/lllyasviel/PaintingLight/releases/download/files/user_study.zip">User Study</a> - Raw results and scores in our user study.</li>
 
 </ul>
 <div class="header">Citation</div>
 <p>
-Lvmin Zhang, Edgar Simo-Serra, Yi Ji, and Chunping Liu<br>
-"Generating Digital Painting Lighting Effects via RGB-space Geometry."<br>
-<i>ACM Transactions on Graphics</i>, January 2020.
+Xinrui Wang and Jinze Yu<br>
+"Learning to Cartoonize Using White-box Cartoon Representations."<br>
+<i>IEEE Conference on Computer Vision and Pattern Recognition</i>, June 2020.
+
+<!
 </p><div class="header">BibTeX</div>
 <p>
 </p><pre>@article{Zhang2020,
@@ -85,6 +66,7 @@ Lvmin Zhang, Edgar Simo-Serra, Yi Ji, and Chunping Liu<br>
 }
 </pre>
 </div>
+>
 
 
 </body></html>
