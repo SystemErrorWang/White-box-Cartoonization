@@ -1,0 +1,205 @@
+/* Un-break mobile pages. */
+* {
+        text-size-adjust: none;
+	-webkit-text-size-adjust: none;
+}
+
+/* Page background and default foreground colors */
+body {
+	background: #111;
+	color: #ddd;
+	padding-bottom: 5vw;
+}
+@media screen and (max-width: 533px) {
+ body {
+	font-size: 3vw;
+ }
+}
+
+/* Default link colors */
+a {
+	color: #f38025;
+	text-decoration: none;
+}
+.unlinked {
+	color: #f38025;
+}
+
+/* "Crumbtrail" bar at top - meant to be used as '<div class="crumb">' */
+.crumb {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	height: 22px;
+	background: #f38025;
+	border-bottom: 5px solid #000;
+	font-size: 14px;
+	font-weight: bold;
+	color: #000;
+	padding: 2px 10px;
+}
+@media screen and (max-width: 800px) {
+ .crumb {
+	height: 2.75vw;
+	border-bottom: 0.625vw solid #000;
+	font-size: 1.75vw;
+	padding: 0.025vw 1.25vw;
+ }
+}
+.crumb a {
+	color: #000;
+}
+
+/* Right-aligned span */
+.right {
+	float: right;
+}
+
+/* Page main title */
+.title {
+	text-align: center;
+	font-size: 56px;
+	padding-top: 80px;
+	padding-bottom: 56px;
+	color: #f38025;
+}
+.title img {
+	vertical-align: middle;
+	height: 75px;
+	padding-right: 10px;
+}
+@media screen and (max-width: 800px) {
+ .title {
+	font-size: 7vw;
+	padding-top: 10vw;
+	padding-bottom: 7vw;
+ }
+ .title img {
+	height: 9.375vw;
+	padding-right: 1.25vw;
+ }
+}
+.logoX {
+	color: #fff;
+}
+
+/* Centered tables or divs */
+.content, .linkgallery, .projlist, .abstract {
+	width: 720px;
+	margin: 0px auto;
+}
+.linkgallery, .projlist, .centered {
+	text-align: center;
+}
+.linkgallery a img {
+	width: 188;
+	filter: grayscale(20%) brightness(150%);
+	-webkit-filter: grayscale(20%) brightness(150%);
+}
+.link {
+	color: #f38025;
+	font-size: 36px;
+}
+.projlist td {
+	padding: 24px;
+}
+.projlist img {
+	width: 240px;
+}
+@media screen and (max-width: 800px) {
+ .content, .linkgallery, .projlist, .abstract {
+	width: 90vw;
+ }
+ .linkgallery a img {
+	width: 23.5vw;
+ }
+ .link {
+	font-size: 4.5vw;
+ }
+ .projlist td {
+	padding: 3vw;
+ }
+ .projlist img {
+	width: 30vw;
+ }
+}
+
+/* Paper listings */
+.paperheader {
+	text-align: center;
+	padding-top: 80px;
+	padding-bottom: 56px;
+}
+@media screen and (max-width: 800px) {
+ .paperheader {
+	padding-top: 10vw;
+	padding-bottom: 7vw;
+ }
+}
+.papertitle {
+	font-size: 150%;
+	font-weight: bold;
+	color: #f38025;
+}
+.pubinfo {
+}
+.authors {
+	font-size: 125%;
+}
+.paperimg {
+	text-align: center;
+}
+.paperimg img {
+	max-width: 100%;
+}
+.longcaption {
+	margin: 24px;
+	font-style: italic;
+	text-align: justify;
+}
+.shortcaption {
+	margin: 24px;
+	font-style: italic;
+	text-align: center;
+}
+@media screen and (max-width: 800px) {
+ .longcaption {
+	margin: 3vw;
+ }
+ .shortcaption {
+	margin: 3vw;
+ }
+}
+.abstract {
+	text-align: justify;
+}
+
+/* Links with fancy fading hover effect */
+a, .linkgallery a img {
+	transition: .1s ease-in-out;
+	-webkit-transition: .1s ease-in-out;
+}
+a:hover, a:active, .crumb a:hover, .crumb a:active,
+  .linkgallery a:hover img, .linkgallery a:active img {
+	color: #fff;
+	filter: grayscale(100%) brightness(125%);
+	-webkit-filter: grayscale(100%) brightness(125%);
+}
+
+/* Larger text */
+.larger {
+	font-size: 125%;
+}
+
+/* Small header */
+.header {
+	font-size: 125%;
+	font-weight: bold;
+	margin-top: 1em;
+}
+
+/* Text inputs */
+input[type=text], select, textarea {
+	width: 100%;
+}

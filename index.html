@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Generating Digital Painting Lighting Effects via RGB-space Geometry</title>
+	<link rel="stylesheet" type="text/css" href="./index_files/pixl-bk.css">
+	<link rel="stylesheet" type="text/css" href="./index_files/pixl-fonts.css">
+</head>
+
+<body>
+
+<div class="crumb">
+	<a href="https://github.com/lllyasviel">Style2Paints Research</a> →
+	[Zhang et al. 2020]
+	</span>
+</div>
+
+
+<div class="content">
+<div class="paperheader">
+  <div class="papertitle"> Generating Digital Painting Lighting Effects via RGB-space Geometry </div>
+  <br>
+  <div class="pubinfo"> ACM Transactions on Graphics (Presented at SIGGRAPH), January 2020 </div>
+  <br>
+  <div class="authors"> <a href="https://github.com/lllyasviel">Lvmin Zhang</a>, <a href="https://esslab.jp/~ess/en/">Edgar Simo-Serra</a>, Yi Ji, and Chunping Liu </div>
+</div>
+
+<div class="paperimg"><img src="./paper/shinjuku.jpg"></div>
+<div class="longcaption">Examples of digital paintings and lighting effects created by professional artist manually. Digital painting artists are good at drawing lighting effects in various styles. From the perspective of computer graphics, can we generate artistic lighting effects on these drawn pictures to complement the current lighting composition workflow? Maybe we can first observe the artists' drawing process for some inspiration ......</div>
+<div class="header">Abstract</div>
+<p>
+</p><div class="abstract">
+		We present an algorithm to generate digital painting lighting effects from a
+		single image. Our algorithm is based on a key observation: artists use many
+		overlapping strokes to paint lighting effects, i.e., pixels with dense stroke
+		history tend to gather more illumination strokes. Based on this observation,
+		we design an algorithm to both estimate the density of strokes in a digital
+		painting using color geometry, and then generate novel lighting effects by
+		mimicking artists' coarse-to-fine workflow. Coarse lighting effects are first
+		generated using a wave transform, and then retouched according to the
+		stroke density of the original illustrations into usable lighting effects.
+		<br>
+		Our algorithm is content-aware, with generated lighting effects naturally
+		adapting to image structures, and can be used as an interactive tool to
+		simplify current labor-intensive workflows for generating lighting effects
+		for digital and matte paintings. In addition, our algorithm can also produce
+		usable lighting effects for photographs or 3D rendered images. We evaluate
+		our approach with both an in-depth qualitative and a quantitative analysis
+		which includes a perceptual user study. Results show that our proposed
+		approach is not only able to produce favorable lighting effects with respect
+		to existing approaches, but also that it is able to significantly reduce the
+		needed interaction time.
+</div>
+<div class="header">Files</div>
+<ul>
+<li> <a href="./files/TOG20PaintingLight.pdf">Paper</a> (13 MB PDF)</li>
+<li> <a href="./files/video.mp4">Download Video (8 minutes)</a> (53 MB MPEG-4)</li>
+<li> <a href="https://www.youtube.com/watch?v=X7li86oMBLA">Watch on YouTube</a> </li></ul>
+<div class="header">See Also</div>
+<ul>
+
+<li> <a href="https://github.com/lllyasviel/PaintingLight">Source Code</a> - Core relighting algorithm only, version 0.1, several Python files. User interface not included. Licensed by Style2Paints for noncommercial research use only. This implementation reproduces the results in our main paper and video.</li>
+
+<li> <a href="./files/ablative_animation.mp4">Animated Ablative Study</a> - Additional animated examples to help understanding the ablation study mentioned in main article.</li>
+
+<li> <a href="./files/sup.pdf">Supplementary Document</a> - A document of some additional methodology and experimental statistics.</li>
+
+<li> <a href="https://github.com/lllyasviel/PaintingLight/releases/download/files/user_study.zip">User Study</a> - Raw results and scores in our user study.</li>
+
+</ul>
+<div class="header">Citation</div>
+<p>
+Lvmin Zhang, Edgar Simo-Serra, Yi Ji, and Chunping Liu<br>
+"Generating Digital Painting Lighting Effects via RGB-space Geometry."<br>
+<i>ACM Transactions on Graphics</i>, January 2020.
+</p><div class="header">BibTeX</div>
+<p>
+</p><pre>@article{Zhang2020,
+   author = "Lvmin Zhang and Edgar Simo-Serra and Yi Ji and Chunping Liu",
+   title = "Generating Digital Painting Lighting Effects via RGB-space Geometry",
+   journal = "ACM Transactions on Graphics",
+   year = "2020"
+}
+</pre>
+</div>
+
+
+</body></html>

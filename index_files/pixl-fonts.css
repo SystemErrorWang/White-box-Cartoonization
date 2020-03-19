@@ -1,0 +1,7 @@
+/* Use Source Sans Pro fonts */
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600');
+
+* {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
