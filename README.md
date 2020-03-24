@@ -6,6 +6,7 @@
 [project page](https://systemerrorwang.github.io/White-box-Cartoonization/) |   [paper](https://github.com/SystemErrorWang/White-box-Cartoonization/blob/master/paper/06791.pdf)
 
 Tensorflow implementation for CVPR2020 paper “Learning to Cartoonize Using White-box Cartoon Representations”
+This repo in under construction, now inference code is available, training code will be updated soon
 
 <img src="images/method.jpg" width="1000px"/>
 <img src="images/use_cases.jpg" width="1000px"/>
@@ -18,10 +19,6 @@ Tensorflow implementation for CVPR2020 paper “Learning to Cartoonize Using Whi
 ### Scenery
 <img src="images/city1.jpg" width="1000px"/>
 <img src="images/city1.jpg" width="1000px"/>
-
-### Animals ans Plants
-<img src="imgs/animal.jpg" width="1000px"/>
-<img src="imgs/plants.jpg" width="1000px"/>
 
 ### Food
 <img src="images/food.jpg" width="1000px"/>
@@ -38,7 +35,7 @@ Tensorflow implementation for CVPR2020 paper “Learning to Cartoonize Using Whi
 - Inference code: Linux, Windows and MacOS
 
 
-## Getting Started
+## How To Use
 ### Installation
 - Assume you already have NVIDIA GPU and CUDA CuDNN installed 
 - Install tensorflow-gpu, we tested 1.12.0 and 1.13.0rc0 
@@ -52,10 +49,17 @@ Tensorflow implementation for CVPR2020 paper “Learning to Cartoonize Using Whi
 
 
 ### Train
+- Will be updated soon
 
 
-## Datasets
-
+### Datasets
+- Due to copyright issues, we cannot provide cartoon images used for training
+- However, these training datasets are easy to prepare
+- Scenery images are collected from Shinkai Makoto, Miyazaki Hayao and Hosoda Mamoru films
+- Clip films into frames and random crop and resize to 256x256
+- Portrait images are from Kyoto animations and PA Works
+- We use this repo(https://github.com/nagadomi/lbpcascade_animeface) to detect facial areas
+- Manual data cleaning will greatly increace both datasets quality
 
 
 ## Citation
