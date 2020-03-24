@@ -61,5 +61,3 @@ Tensorflow implementation for CVPR2020 paper “Learning to Cartoonize Using Whi
 ## Citation
 If you use this code for your research, please cite our [paper](https://systemerrorwang.github.io/White-box-Cartoonization/):
 
-
-
