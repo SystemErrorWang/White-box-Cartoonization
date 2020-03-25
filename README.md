@@ -5,7 +5,8 @@
 # Learning to Cartoonize Using White-box Cartoon Representations
 [project page](https://systemerrorwang.github.io/White-box-Cartoonization/) |   [paper](https://github.com/SystemErrorWang/White-box-Cartoonization/blob/master/paper/06791.pdf)
 
-Tensorflow implementation for CVPR2020 paper “Learning to Cartoonize Using White-box Cartoon Representations”
+Tensorflow implementation for CVPR2020 paper “Learning to Cartoonize Using White-box Cartoon Representations”.
+
 This repo in under construction, now inference code is available, training code will be updated soon
 
 <img src="images/method.jpg" width="1000px"/>
@@ -39,7 +40,7 @@ This repo in under construction, now inference code is available, training code 
 ### Installation
 - Assume you already have NVIDIA GPU and CUDA CuDNN installed 
 - Install tensorflow-gpu, we tested 1.12.0 and 1.13.0rc0 
-- Install scikit-image==0.14.5, other version may cause problems
+- Install scikit-image==0.14.5, other versions may cause problems
 
 
 ### Inference with Pre-trained Model
@@ -49,7 +50,11 @@ This repo in under construction, now inference code is available, training code 
 
 
 ### Train
-- Will be updated soon
+- Place your training data in corresponding folders in /dataset 
+- Run pretrain.py, results will be saved in /pretrain folder
+- Run train.py, results will be saved in /train_cartoon folder
+- Codes are cleaned from production environment and untested
+- There may be minor problems but should be easy to resolve
 
 
 ### Datasets
