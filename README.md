@@ -19,7 +19,7 @@ This repo in under construction, now inference code is available, training code 
 
 ### Scenery
 <img src="images/city1.jpg" width="1000px"/>
-<img src="images/city1.jpg" width="1000px"/>
+<img src="images/city2.jpg" width="1000px"/>
 
 ### Food
 <img src="images/food.jpg" width="1000px"/>
@@ -66,7 +66,16 @@ This repo in under construction, now inference code is available, training code 
 - We use this repo(https://github.com/nagadomi/lbpcascade_animeface) to detect facial areas
 - Manual data cleaning will greatly increace both datasets quality
 
+## Acknowledgement
+We are grateful for the help from Lvmin Zhang and Style2Paints Research
 
 ## Citation
 If you use this code for your research, please cite our [paper](https://systemerrorwang.github.io/White-box-Cartoonization/):
 
+    Bib file coming soon.
+
+# 中文社区
+
+我们有一个除了技术什么东西都聊的以技术交流为主的宇宙超一流二次元相关技术交流吹水群“纸片协会”。如果你一次加群失败，可以多次尝试。
+
+    纸片协会总舵：184467946
