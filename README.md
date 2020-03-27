@@ -3,7 +3,7 @@
 <br><br><br>
 
 # Learning to Cartoonize Using White-box Cartoon Representations
-[project page](https://systemerrorwang.github.io/White-box-Cartoonization/) |   [paper](https://github.com/SystemErrorWang/White-box-Cartoonization/blob/master/paper/06791.pdf)
+[project page](https://systemerrorwang.github.io/White-box-Cartoonization/) |   [paper](https://github.com/SystemErrorWang/White-box-Cartoonization/blob/master/paper/06791.pdf) |   [twitter](https://twitter.com/IlIIlIIIllIllII/status/1243108510423896065) |   [zhihu](https://zhuanlan.zhihu.com/p/117422157) |   [bilibili](https://www.bilibili.com/video/av56708333)
 
 Tensorflow implementation for CVPR2020 paper “Learning to Cartoonize Using White-box Cartoon Representations”.
 
@@ -13,9 +13,6 @@ This repo in under construction, now inference code is available, training code 
 <img src="images/use_cases.jpg" width="1000px"/>
 
 ## Use cases
-### People
-<img src="images/person1.jpg" width="1000px"/>
-<img src="images/person2.jpg" width="1000px"/>
 
 ### Scenery
 <img src="images/city1.jpg" width="1000px"/>
@@ -27,29 +24,37 @@ This repo in under construction, now inference code is available, training code 
 ### Indoor Scenes
 <img src="images/home.jpg" width="1000px"/>
 
+### People
+<img src="images/person1.jpg" width="1000px"/>
+<img src="images/person2.jpg" width="1000px"/>
+
 ### More Images Are Shown In The Supplementary Materials
 
-
 ## Prerequisites
+
 - Training code: Linux or Windows
 - NVIDIA GPU + CUDA CuDNN for performance
 - Inference code: Linux, Windows and MacOS
 
 
 ## How To Use
+
 ### Installation
+
 - Assume you already have NVIDIA GPU and CUDA CuDNN installed 
 - Install tensorflow-gpu, we tested 1.12.0 and 1.13.0rc0 
 - Install scikit-image==0.14.5, other versions may cause problems
 
 
 ### Inference with Pre-trained Model
+
 - Store test images in /test_code/test_images
 - Run /test_code/cartoonize.py
 - Results will be saved in /test_code/cartoonized_images
 
 
 ### Train
+
 - Place your training data in corresponding folders in /dataset 
 - Run pretrain.py, results will be saved in /pretrain folder
 - Run train.py, results will be saved in /train_cartoon folder
@@ -58,6 +63,7 @@ This repo in under construction, now inference code is available, training code 
 
 
 ### Datasets
+
 - Due to copyright issues, we cannot provide cartoon images used for training
 - However, these training datasets are easy to prepare
 - Scenery images are collected from Shinkai Makoto, Miyazaki Hayao and Hosoda Mamoru films
@@ -67,9 +73,11 @@ This repo in under construction, now inference code is available, training code 
 - Manual data cleaning will greatly increace both datasets quality
 
 ## Acknowledgement
+
 We are grateful for the help from Lvmin Zhang and Style2Paints Research
 
 ## Citation
+
 If you use this code for your research, please cite our [paper](https://systemerrorwang.github.io/White-box-Cartoonization/):
 
     Bib file coming soon.
