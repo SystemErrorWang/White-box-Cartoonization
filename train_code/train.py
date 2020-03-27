@@ -28,7 +28,7 @@ def arg_parser():
     parser.add_argument("--total_iter", default = 100000, type = int)
     parser.add_argument("--adv_train_lr", default = 2e-4, type = float)
     parser.add_argument("--gpu_fraction", default = 0.5, type = float)
-    parser.add_argument("--save_dir", default = 'mymodel', type = str)
+    parser.add_argument("--save_dir", default = 'train_cartoon', type = str)
     parser.add_argument("--use_enhance", default = False)
 
     args = parser.parse_args()

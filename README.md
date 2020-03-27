@@ -19,7 +19,7 @@ This repo in under construction, now inference code is available, training code 
 
 ### Scenery
 <img src="images/city1.jpg" width="1000px"/>
-<img src="images/city1.jpg" width="1000px"/>
+<img src="images/city2.jpg" width="1000px"/>
 
 ### Food
 <img src="images/food.jpg" width="1000px"/>
