@@ -66,6 +66,8 @@ This repo in under construction, now inference code is available, training code 
 - We use this repo(https://github.com/nagadomi/lbpcascade_animeface) to detect facial areas
 - Manual data cleaning will greatly increace both datasets quality
 
+## Acknowledgement
+We are grateful for the help from Lvmin Zhang and Style2Paints Research
 
 ## Citation
 If you use this code for your research, please cite our [paper](https://systemerrorwang.github.io/White-box-Cartoonization/):
