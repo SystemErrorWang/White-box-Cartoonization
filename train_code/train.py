@@ -191,7 +191,7 @@ def train(args):
 
                     utils.write_batch_image(result_face, args.save_dir+'/images', 
                                             str(total_iter)+'_face_result.jpg', 4)
-                    utils.write_batch_image(photo_face, args.save_out_dir, 
+                    utils.write_batch_image(photo_face, args.save_dir+'/images', 
                                             str(total_iter)+'_face_photo.jpg', 4)
 
                     utils.write_batch_image(result_scenery, args.save_dir+'/images', 

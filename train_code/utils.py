@@ -70,8 +70,8 @@ def label2rgb(label_field, image, kind='mix', bg_label=-1, bg_color=(0, 0, 0)):
 
 
 
-def color_ss_map(image, color_space='Lab', k=10, 
-                 sim_strategy='CTSF', seg_num=200, power=1):
+def color_ss_map(image, seg_num=200, power=1, 
+                 color_space='Lab', k=10, sim_strategy='CTSF'):
     
     img_seg = segmentation.felzenszwalb(image, scale=k, sigma=0.8, min_size=100)
     img_cvtcolor = label2rgb(img_seg, image, kind='mix')
@@ -112,7 +112,8 @@ def simple_superpixel(batch_image, seg_num=200):
         seg_label = segmentation.slic(image, n_segments=seg_num, sigma=1,
                                         compactness=10, convert2lab=True)
         image = color.label2rgb(seg_label, image, kind='mix')
-        
+        return image
+    
     num_job = np.shape(batch_image)[0]
     batch_out = Parallel(n_jobs=num_job)(delayed(process_slic)\
                          (image) for image in batch_image)
