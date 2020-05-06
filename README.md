@@ -46,6 +46,14 @@ This repo in under construction, now inference code is available, training code 
 - Install scikit-image==0.14.5, other versions may cause problems
 
 
+#### macOS
+
+```bash
+brew install python3
+pip3 install opencv-python tensorflow==1.15 tqdm
+```
+
+
 ### Inference with Pre-trained Model
 
 - Store test images in /test_code/test_images
