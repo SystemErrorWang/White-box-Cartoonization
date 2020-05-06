@@ -80,6 +80,36 @@ pip3 install opencv-python tensorflow==1.15 tqdm
 - We use this repo(https://github.com/nagadomi/lbpcascade_animeface) to detect facial areas
 - Manual data cleaning will greatly increace both datasets quality
 
+
+### Troubleshooting
+
+
+#### ValueError: Can't load save_path when it is None
+
+If you see the following error when running `python[3] ./test_code/cartoonize.py`, change the
+current working directory to `test_code` and run the script from there.
+
+```
+Traceback (most recent call last):
+  File "./test_code/cartoonize.py", line 65, in <module>
+    cartoonize(load_folder, save_folder, model_path)
+  File "./test_code/cartoonize.py", line 39, in cartoonize
+    saver.restore(sess, tf.train.latest_checkpoint(model_path))
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/python/training/saver.py", line 1277, in restore
+    raise ValueError("Can't load save_path when it is None.")
+ValueError: Can't load save_path when it is None.
+```
+
+
+#### TensorFlow binary was not compiled to use: AVX2 FMA
+
+If the installed `tf` fails with the following error, try following [these instructions](https://github.com/lakshayg/tensorflow-build).
+
+```
+Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+```
+
+
 ## Acknowledgement
 
 We are grateful for the help from Lvmin Zhang and Style2Paints Research
