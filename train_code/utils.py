@@ -19,17 +19,17 @@ import tensorflow as tf
 
 
 
-def color_shift(image1, image2, alpha=0.2, mode='uniform'):
+def color_shift(image1, image2, mode='uniform'):
     b1, g1, r1 = tf.split(image1, num_or_size_splits=3, axis=3)
     b2, g2, r2 = tf.split(image2, num_or_size_splits=3, axis=3)
     if mode == 'normal':
-        b_weight = np.random.normal(0.114, alpha)
-        g_weight = np.random.normal(0.587, alpha)
-        r_weight = np.random.normal(0.299, alpha)
+        b_weight = tf.random.normal(shape=[1], mean=0.114, stddev=0.1)
+        g_weight = np.random.normal(shape=[1], mean=0.587, stddev=0.1)
+        r_weight = np.random.normal(shape=[1], mean=0.299, stddev=0.1)
     elif mode == 'uniform':
-        b_weight = np.random.uniform(0.114-alpha, 0.114+alpha)
-        g_weight = np.random.uniform(0.587-alpha, 0.587+alpha)
-        r_weight = np.random.uniform(0.299-alpha, 0.299+alpha)
+        b_weight = tf.random.uniform(shape=[1], minval=0.014, maxval=0.214)
+        g_weight = tf.random.uniform(shape=[1], minval=0.487, maxval=0.687)
+        r_weight = tf.random.uniform(shape=[1], minval=0.199, maxval=0.399)
     output1 = (b_weight*b1+g_weight*g1+r_weight*r1)/(b_weight+g_weight+r_weight)
     output2 = (b_weight*b2+g_weight*g2+r_weight*r2)/(b_weight+g_weight+r_weight)
     return output1, output2
