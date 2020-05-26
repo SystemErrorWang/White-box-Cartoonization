@@ -60,7 +60,8 @@ This repo in under construction, now inference code is available, training code 
 - Run train.py, results will be saved in /train_cartoon folder
 - Codes are cleaned from production environment and untested
 - There may be minor problems but should be easy to resolve
-- Pretrained VGG_19 model can be finded at following url:
+- Pretrained VGG_19 model can be found at following url:
+
 	https://drive.google.com/open?id=1JfJzJbNjAWBIHGm9mc_R9dXv7DAw3tZc
 
 
