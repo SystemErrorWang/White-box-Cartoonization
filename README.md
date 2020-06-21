@@ -7,8 +7,6 @@
 
 Tensorflow implementation for CVPR2020 paper “Learning to Cartoonize Using White-box Cartoon Representations”.
 
-This repo in under construction, now inference code is available, training code will be updated soon
-
 <img src="images/method.jpg" width="1000px"/>
 <img src="images/use_cases.jpg" width="1000px"/>
 
@@ -78,6 +76,9 @@ This repo in under construction, now inference code is available, training code 
 ## Acknowledgement
 
 We are grateful for the help from Lvmin Zhang and Style2Paints Research
+
+## Citation
+Copyright (C) Xinrui Wang, Jinze Yu. All rights reserved. Licensed under the CC BY-NC-SA 4.0 license (https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
 
 ## Citation
 
