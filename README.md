@@ -77,7 +77,7 @@ Tensorflow implementation for CVPR2020 paper “Learning to Cartoonize Using Whi
 
 We are grateful for the help from Lvmin Zhang and Style2Paints Research
 
-## Citation
+## License
 Copyright (C) Xinrui Wang, Jinze Yu. All rights reserved. Licensed under the CC BY-NC-SA 4.0 license (https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
 
 ## Citation
