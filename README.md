@@ -59,8 +59,8 @@ Tensorflow implementation for CVPR2020 paper “Learning to Cartoonize Using Whi
 - Codes are cleaned from production environment and untested
 - There may be minor problems but should be easy to resolve
 - Pretrained VGG_19 model can be found at following url:
+https://drive.google.com/file/d/1j0jDENjdwxCDb36meP6-u5xDBzmKBOjJ/view?usp=sharing
 
-	https://drive.google.com/open?id=1JfJzJbNjAWBIHGm9mc_R9dXv7DAw3tZc
 
 
 ### Datasets
