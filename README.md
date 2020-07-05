@@ -71,7 +71,7 @@ https://drive.google.com/file/d/1j0jDENjdwxCDb36meP6-u5xDBzmKBOjJ/view?usp=shari
 - Clip films into frames and random crop and resize to 256x256
 - Portrait images are from Kyoto animations and PA Works
 - We use this repo(https://github.com/nagadomi/lbpcascade_animeface) to detect facial areas
-- Manual data cleaning will greatly increace both datasets quality
+- Manual data cleaning will greatly increase both datasets quality
 
 ## Acknowledgement
 
