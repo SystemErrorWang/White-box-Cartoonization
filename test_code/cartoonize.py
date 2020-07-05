@@ -1,7 +1,11 @@
+try:
+    import tensorflow.compat.v1 as tf
+except ImportError:
+    import tensorflow as tf
+
 import os
 import cv2
 import numpy as np
-import tensorflow as tf 
 import network
 import guided_filter
 from tqdm import tqdm
@@ -23,6 +27,13 @@ def resize_crop(image):
     
 
 def cartoonize(load_folder, save_folder, model_path):
+    try:
+        tf.disable_eager_execution()
+    except:
+        None
+
+    tf.reset_default_graph()
+
     input_photo = tf.placeholder(tf.float32, [1, None, None, 3])
     network_out = network.unet_generator(input_photo)
     final_out = guided_filter.guided_filter(input_photo, network_out, r=1, eps=5e-3)
@@ -63,6 +74,3 @@ if __name__ == '__main__':
     if not os.path.exists(save_folder):
         os.mkdir(save_folder)
     cartoonize(load_folder, save_folder, model_path)
-    
-
-    

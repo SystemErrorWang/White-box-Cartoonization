@@ -1,6 +1,11 @@
-import tensorflow as tf
+try:
+    import tensorflow.compat.v1 as tf
+    import tf_slim as slim
+except ImportError:
+    import tensorflow as tf
+    import tensorflow.contrib.slim as slim
+
 import numpy as np
-import tensorflow.contrib.slim as slim
 
 
 
