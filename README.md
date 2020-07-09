@@ -78,7 +78,9 @@ https://drive.google.com/file/d/1j0jDENjdwxCDb36meP6-u5xDBzmKBOjJ/view?usp=shari
 We are grateful for the help from Lvmin Zhang and Style2Paints Research
 
 ## License
-Copyright (C) Xinrui Wang, Jinze Yu. All rights reserved. Licensed under the CC BY-NC-SA 4.0 license (https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
+Copyright (C) Xinrui Wang, Jinze Yu. All rights reserved. Licensed under the CC BY-NC-SA 4.0 
+Also, Commercial application is prohibited
+license (https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
 
 ## Citation
 
