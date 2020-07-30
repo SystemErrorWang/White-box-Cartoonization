@@ -10,6 +10,12 @@ Tensorflow implementation for CVPR2020 paper “Learning to Cartoonize Using Whi
 <img src="images/method.jpg" width="1000px"/>
 <img src="images/use_cases.jpg" width="1000px"/>
 
+## Online demo
+Some kind people made online demo for this project:
+Demo link: https://cartoonize-lkqov62dia-de.a.run.app/cartoonize
+Code: https://github.com/experience-ml/cartoonize
+Sample Demo: https://www.youtube.com/watch?v=GqduSLcmhto&feature=emb_title
+
 ## Use cases
 
 ### Scenery
