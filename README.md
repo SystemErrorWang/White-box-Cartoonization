@@ -5,14 +5,12 @@
 # [CVPR2020]Learning to Cartoonize Using White-box Cartoon Representations
 [project page](https://systemerrorwang.github.io/White-box-Cartoonization/) |   [paper](https://github.com/SystemErrorWang/White-box-Cartoonization/blob/master/paper/06791.pdf) |   [twitter](https://twitter.com/IlIIlIIIllIllII/status/1243108510423896065) |   [zhihu](https://zhuanlan.zhihu.com/p/117422157) |   [bilibili](https://www.bilibili.com/video/av56708333)
 
-Tensorflow implementation for CVPR2020 paper “Learning to Cartoonize Using White-box Cartoon Representations”.
+- Tensorflow implementation for CVPR2020 paper “Learning to Cartoonize Using White-box Cartoon Representations”.
+- Improved method for facial images are now available:
+- https://github.com/SystemErrorWang/FacialCartoonization
 
 <img src="images/method.jpg" width="1000px"/>
 <img src="images/use_cases.jpg" width="1000px"/>
-
-## Improved method for facial images are now available:
-
-https://github.com/SystemErrorWang/FacialCartoonization
 
 ## Use cases
 
