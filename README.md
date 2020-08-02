@@ -10,6 +10,10 @@ Tensorflow implementation for CVPR2020 paper “Learning to Cartoonize Using Whi
 <img src="images/method.jpg" width="1000px"/>
 <img src="images/use_cases.jpg" width="1000px"/>
 
+## Improved method for facial images are now available:
+
+https://github.com/SystemErrorWang/FacialCartoonization
+
 ## Use cases
 
 ### Scenery
