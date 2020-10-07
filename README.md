@@ -50,22 +50,22 @@
 ### Installation
 
 - Assume you already have NVIDIA GPU and CUDA CuDNN installed 
-- Install tensorflow-gpu, we tested 1.12.0 and 1.13.0rc0 
-- Install scikit-image==0.14.5, other versions may cause problems
+- Install `tensorflow-gpu`, we tested `1.12.0` and `1.13.0rc0`
+- Install `scikit-image==0.14.5`, other versions may cause problems
 
 
 ### Inference with Pre-trained Model
 
-- Store test images in /test_code/test_images
-- Run /test_code/cartoonize.py
-- Results will be saved in /test_code/cartoonized_images
+- Store test images in `/test_code/test_images`
+- Run `/test_code/cartoonize.py`
+- Results will be saved in `/test_code/cartoonized_images`
 
 
 ### Train
 
-- Place your training data in corresponding folders in /dataset 
-- Run pretrain.py, results will be saved in /pretrain folder
-- Run train.py, results will be saved in /train_cartoon folder
+- Place your training data in corresponding folders in `/dataset`
+- Run `pretrain.py`, results will be saved in `/pretrain` folder
+- Run `train.py`, results will be saved in `/train_cartoon folder`
 - Codes are cleaned from production environment and untested
 - There may be minor problems but should be easy to resolve
 - Pretrained VGG_19 model can be found at following url:
@@ -80,7 +80,7 @@ https://drive.google.com/file/d/1j0jDENjdwxCDb36meP6-u5xDBzmKBOjJ/view?usp=shari
 - Scenery images are collected from Shinkai Makoto, Miyazaki Hayao and Hosoda Mamoru films
 - Clip films into frames and random crop and resize to 256x256
 - Portrait images are from Kyoto animations and PA Works
-- We use this repo(https://github.com/nagadomi/lbpcascade_animeface) to detect facial areas
+- We used this repo(https://github.com/nagadomi/lbpcascade_animeface) to detect facial areas
 - Manual data cleaning will greatly increace both datasets quality
 
 ## Acknowledgement
@@ -90,7 +90,7 @@ We are grateful for the help from Lvmin Zhang and Style2Paints Research
 ## License
 - Copyright (C) Xinrui Wang All rights reserved. Licensed under the CC BY-NC-SA 4.0 
 - license (https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
-- Commercial application is prohibited, please remain this license if you clone this repo
+- Commercial application is prohibited, please retain this license if you clone this repo
 
 ## Citation
 
