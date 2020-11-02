@@ -2,7 +2,7 @@ import numpy as np
 from skimage.segmentation import find_boundaries
 from skimage.segmentation import felzenszwalb
 from scipy.ndimage import find_objects
-import measure
+from  .measure import * 
 
 
 class HierarchicalGrouping(object):
@@ -14,7 +14,7 @@ class HierarchicalGrouping(object):
 
     def build_regions(self):
         self.regions = {}
-        lbp_img = measure.generate_lbp_image(self.img)
+        lbp_img = generate_lbp_image(self.img)
         for label in self.labels:
             size = (self.img_seg == 1).sum()
             region_slice = find_objects(self.img_seg==label)[0]
@@ -22,8 +22,8 @@ class HierarchicalGrouping(object):
                          [region_slice[i].stop for i in (1,0)])
 
             mask = self.img_seg == label
-            color_hist = measure.calculate_color_hist(mask, self.img)
-            texture_hist = measure.calculate_texture_hist(mask, lbp_img)
+            color_hist = calculate_color_hist(mask, self.img)
+            texture_hist = calculate_texture_hist(mask, lbp_img)
 
             self.regions[label] = {
                 'size': size,
@@ -39,7 +39,7 @@ class HierarchicalGrouping(object):
             neighbors = self._find_neighbors(i)
             for j in neighbors:
                 if i < j:
-                    self.s[(i,j)] = measure.calculate_sim(self.regions[i],
+                    self.s[(i,j)] = calculate_sim(self.regions[i],
                                              self.regions[j],
                                              self.img.size,
                                              self.sim_strategy)
@@ -118,7 +118,7 @@ class HierarchicalGrouping(object):
 
         for j in neighbors:
             # i is larger than j, so use (j,i) instead
-            self.s[(j,i)] = measure.calculate_sim(self.regions[i],
+            self.s[(j,i)] = calculate_sim(self.regions[i],
                                           self.regions[j],
                                           self.img.size,
                                           self.sim_strategy)

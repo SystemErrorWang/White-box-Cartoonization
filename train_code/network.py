@@ -7,7 +7,7 @@ Source code for 'Learning to Cartoonize Using White-Box Cartoon Representations'
 import layers
 import tensorflow as tf
 import numpy as np
-import tensorflow.contrib.slim as slim
+import tf_slim as slim
 
 from tqdm import tqdm
 
@@ -15,7 +15,7 @@ from tqdm import tqdm
 
 def resblock(inputs, out_channel=32, name='resblock'):
     
-    with tf.variable_scope(name):
+    with tf.compat.v1.variable_scope(name):
         
         x = slim.convolution2d(inputs, out_channel, [3, 3], 
                                activation_fn=None, scope='conv1')
@@ -28,7 +28,7 @@ def resblock(inputs, out_channel=32, name='resblock'):
 
 
 def generator(inputs, channel=32, num_blocks=4, name='generator', reuse=False):
-    with tf.variable_scope(name, reuse=reuse):
+    with tf.compat.v1.variable_scope(name, reuse=reuse):
         
         x = slim.convolution2d(inputs, channel, [7, 7], activation_fn=None)
         x = tf.nn.leaky_relu(x)
@@ -60,7 +60,7 @@ def generator(inputs, channel=32, num_blocks=4, name='generator', reuse=False):
     
 
 def unet_generator(inputs, channel=32, num_blocks=4, name='generator', reuse=False):
-    with tf.variable_scope(name, reuse=reuse):
+    with tf.compat.v1.variable_scope(name, reuse=reuse):
         
         x0 = slim.convolution2d(inputs, channel, [7, 7], activation_fn=None)
         x0 = tf.nn.leaky_relu(x0)
@@ -81,15 +81,15 @@ def unet_generator(inputs, channel=32, num_blocks=4, name='generator', reuse=Fal
         x2 = slim.convolution2d(x2, channel*2, [3, 3], activation_fn=None)
         x2 = tf.nn.leaky_relu(x2)
         
-        h1, w1 = tf.shape(x2)[1], tf.shape(x2)[2]
-        x3 = tf.image.resize_bilinear(x2, (h1*2, w1*2))
+        h1, w1 = tf.shape(input=x2)[1], tf.shape(input=x2)[2]
+        x3 = tf.image.resize(x2, (h1*2, w1*2), method=tf.image.ResizeMethod.BILINEAR)
         x3 = slim.convolution2d(x3+x1, channel*2, [3, 3], activation_fn=None)
         x3 = tf.nn.leaky_relu(x3)
         x3 = slim.convolution2d(x3, channel, [3, 3], activation_fn=None)
         x3 = tf.nn.leaky_relu(x3)
 
-        h2, w2 = tf.shape(x3)[1], tf.shape(x3)[2]
-        x4 = tf.image.resize_bilinear(x3, (h2*2, w2*2))
+        h2, w2 = tf.shape(input=x3)[1], tf.shape(input=x3)[2]
+        x4 = tf.image.resize(x3, (h2*2, w2*2), method=tf.image.ResizeMethod.BILINEAR)
         x4 = slim.convolution2d(x4+x0, channel, [3, 3], activation_fn=None)
         x4 = tf.nn.leaky_relu(x4)
         x4 = slim.convolution2d(x4, 3, [7, 7], activation_fn=None)
@@ -101,7 +101,7 @@ def unet_generator(inputs, channel=32, num_blocks=4, name='generator', reuse=Fal
 def disc_bn(x, scale=1, channel=32, is_training=True, 
             name='discriminator', patch=True, reuse=False):
     
-    with tf.variable_scope(name, reuse=reuse):
+    with tf.compat.v1.variable_scope(name, reuse=reuse):
         
         for idx in range(3):
             x = slim.convolution2d(x, channel*2**idx, [3, 3], stride=2, activation_fn=None)
@@ -115,7 +115,7 @@ def disc_bn(x, scale=1, channel=32, is_training=True,
         if patch == True:
             x = slim.convolution2d(x, 1, [1, 1], activation_fn=None)
         else:
-            x = tf.reduce_mean(x, axis=[1, 2])
+            x = tf.reduce_mean(input_tensor=x, axis=[1, 2])
             x = slim.fully_connected(x, 1, activation_fn=None)
         
         return x
@@ -124,7 +124,7 @@ def disc_bn(x, scale=1, channel=32, is_training=True,
 
 
 def disc_sn(x, scale=1, channel=32, patch=True, name='discriminator', reuse=False):
-    with tf.variable_scope(name, reuse=reuse):
+    with tf.compat.v1.variable_scope(name, reuse=reuse):
 
         for idx in range(3):
             x = layers.conv_spectral_norm(x, channel*2**idx, [3, 3], 
@@ -140,14 +140,14 @@ def disc_sn(x, scale=1, channel=32, patch=True, name='discriminator', reuse=Fals
             x = layers.conv_spectral_norm(x, 1, [1, 1], name='conv_out'.format(idx))
             
         else:
-            x = tf.reduce_mean(x, axis=[1, 2])
+            x = tf.reduce_mean(input_tensor=x, axis=[1, 2])
             x = slim.fully_connected(x, 1, activation_fn=None)
         
         return x
 
 
 def disc_ln(x, channel=32, is_training=True, name='discriminator', patch=True, reuse=False):
-    with tf.variable_scope(name, reuse=reuse):
+    with tf.compat.v1.variable_scope(name, reuse=reuse):
 
         for idx in range(3):
             x = slim.convolution2d(x, channel*2**idx, [3, 3], stride=2, activation_fn=None)
@@ -161,7 +161,7 @@ def disc_ln(x, channel=32, is_training=True, name='discriminator', patch=True, r
         if patch == True:
             x = slim.convolution2d(x, 1, [1, 1], activation_fn=None)
         else:
-            x = tf.reduce_mean(x, axis=[1, 2])
+            x = tf.reduce_mean(input_tensor=x, axis=[1, 2])
             x = slim.fully_connected(x, 1, activation_fn=None)
         
         return x
@@ -172,4 +172,3 @@ def disc_ln(x, channel=32, is_training=True, name='discriminator', patch=True, r
 if __name__ == '__main__':
     pass
     
-   
