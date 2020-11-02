@@ -6,7 +6,7 @@ import network
 import guided_filter
 from tqdm import tqdm
 
-
+tf.compat.v1.disable_eager_execution()
 
 def resize_crop(image):
     h, w, c = np.shape(image)
