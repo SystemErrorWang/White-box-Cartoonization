@@ -82,7 +82,7 @@ def train(args):
 
             if np.mod(total_iter+1, 50) == 0:
 
-                wandb.log({"r_loss":r_loss,"iteration":total_iter})
+                
                 print('pretrain, iter: {}, recon_loss: {}'.format(total_iter, r_loss))
                 if np.mod(total_iter+1, 500 ) == 0:
                     
