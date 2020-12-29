@@ -30,9 +30,8 @@ def process(img):
     inputs:
         - img: np.array from cv2.imread
     """
-    img = img.astype(np.float32)/127.5 - 1
-    h, w = img.shape[:2]
     img = resize_crop(img)
+    img = img.astype(np.float32)/127.5 - 1
     img_tensor = torch.FloatTensor(img.transpose(2, 0, 1)).unsqueeze(0)
     if torch.cuda.is_available():
         img_tensor = img_tensor.cuda()
@@ -50,4 +49,3 @@ if __name__ == "__main__":
     out = process(cv2.imread(im_path))
     fn, ext = os.path.splitext(im_path)
     cv2.imwrite("res.jpg", out)
-    # cv2.imwrite(fn+"_cartoonized"+ext, out)
