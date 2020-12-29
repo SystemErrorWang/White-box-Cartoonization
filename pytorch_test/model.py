@@ -5,22 +5,24 @@ import torch.nn.functional as F
 
 class Whitebox(nn.Module):
     "Whitebox Cartoonizer"
+
     def __init__(self, channel=32):
         super(Whitebox, self).__init__()
         self.generator = Unet_Generator(channel=channel)
 
-    def forward(self, x, r=1, eps=1e-2):
+    def forward(self, x, r=1, eps=5e-3):
         y = self.generator(x)
         x_shape = x.shape
         dev = x.device
-        N = self.box_filter(torch.ones((1, 1, x_shape[2], x_shape[3]), dtype=x.dtype), r).to(dev)
+        N = self.box_filter(torch.ones(
+            (1, 1, x_shape[2], x_shape[3]), dtype=x.dtype), r).to(dev)
 
         mean_x = self.box_filter(x, r) / N
         mean_y = self.box_filter(y, r) / N
-        cov_xy = self.box_filter(x*y,r) / N - mean_x *mean_y
-        var_xy = self.box_filter(x*x,r) / N - mean_x*mean_x
+        cov_xy = self.box_filter(x*y, r) / N - mean_x*mean_y
+        var_x = self.box_filter(x*x, r) / N - mean_x*mean_x
 
-        A = cov_xy / (var_xy + eps)
+        A = cov_xy / (var_x + eps)
         b = mean_y - A*mean_x
 
         mean_A = self.box_filter(A, r) / N
@@ -29,12 +31,13 @@ class Whitebox(nn.Module):
         output = mean_A * x + mean_b
 
         return output
-    
+
     def box_filter(self, x, r):
         k_size = int(2*r+1)
         b, d, _, _ = x.shape
         dev = x.device
-        kernel = torch.ones((d, 1, k_size, k_size), dtype=torch.float32).to(dev)/(k_size**2)
+        kernel = torch.ones((d, 1, k_size, k_size),
+                            dtype=torch.float32).to(dev)/(k_size**2)
         return F.conv2d(x, kernel, bias=None, stride=1, padding=1, dilation=1, groups=d)
 
 
@@ -94,13 +97,15 @@ class Unet_Generator(nn.Module):
         x2 = self.Conv_5(x2)
         x2 = F.leaky_relu(x2, 0.2)
 
-        x3 = F.interpolate(x2, scale_factor=2, mode='bilinear', align_corners=True)
+        x3 = F.interpolate(x2, scale_factor=2,
+                           mode='bilinear', align_corners=True)
         x3 = self.Conv_6(x3+x1)
         x3 = F.leaky_relu(x3, 0.2)
         x3 = self.Conv_7(x3)
         x3 = F.leaky_relu(x3, 0.2)
 
-        x4 = F.interpolate(x3, scale_factor=2, mode='bilinear', align_corners=True)
+        x4 = F.interpolate(x3, scale_factor=2,
+                           mode='bilinear', align_corners=True)
         x4 = self.Conv_8(x4+x0)
         x4 = F.leaky_relu(x4, 0.2)
         x4 = self.Conv_9(x4)
