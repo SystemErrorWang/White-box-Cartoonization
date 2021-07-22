@@ -137,4 +137,4 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-test_code/cartoonized_images/*
+whiteboxcartoonization/cartoonized_images/*

@@ -56,9 +56,9 @@
 
 ### Inference with Pre-trained Model
 
-- Store test images in /test_code/test_images
-- Run /test_code/cartoonize.py
-- Results will be saved in /test_code/cartoonized_images
+- Store test images in /whiteboxcartoonization/test_images
+- Run /whiteboxcartoonization/cartoonize.py
+- Results will be saved in /whiteboxcartoonization/cartoonized_images
 
 
 ### Train
