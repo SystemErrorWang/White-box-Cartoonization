@@ -2,8 +2,8 @@ import os
 import cv2
 import numpy as np
 import tensorflow as tf 
-from whiteboxcartoonization import network
-from whiteboxcartoonization import guided_filter
+from cartoonbox import network
+from cartoonbox import guided_filter
 from tqdm import tqdm
 
 
