@@ -167,4 +167,3 @@ def write_batch_image(image, save_dir, name, n):
 
 if __name__ == '__main__':
     pass
-    

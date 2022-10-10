@@ -13,14 +13,14 @@ def tf_box_filter(x, r):
     weight = 1/((2*r+1)**2)
     box_kernel = weight*np.ones((2*r+1, 2*r+1, ch, 1))
     box_kernel = np.array(box_kernel).astype(np.float32)
-    output = tf.nn.depthwise_conv2d(x, box_kernel, [1, 1, 1, 1], 'SAME')
+    output = tf.nn.depthwise_conv2d(input=x, filter=box_kernel, strides=[1, 1, 1, 1], padding='SAME')
     return output
 
 
 
 def guided_filter(x, y, r, eps=1e-2):
     
-    x_shape = tf.shape(x)
+    x_shape = tf.shape(input=x)
     #y_shape = tf.shape(y)
 
     N = tf_box_filter(tf.ones((1, x_shape[1], x_shape[2], 1), dtype=x.dtype), r)
