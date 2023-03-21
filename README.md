@@ -60,6 +60,8 @@
 - Run /test_code/cartoonize.py
 - Results will be saved in /test_code/cartoonized_images
 
+### Inference on Android with TFLite
+- Cartoonizer with tflite models on Android by [Margaret Maynard-Reid](https://github.com/margaretmz) and [Sayak Paul](https://github.com/sayakpaul)
 
 ### Train
 
