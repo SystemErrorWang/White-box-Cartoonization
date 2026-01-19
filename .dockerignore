@@ -1,0 +1,10 @@
+.git
+.gitignore
+*.md
+paper/
+images/
+index.html
+index_files/
+__pycache__
+*.pyc
+.DS_Store
