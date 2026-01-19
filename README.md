@@ -49,9 +49,44 @@
 
 ### Installation
 
-- Assume you already have NVIDIA GPU and CUDA CuDNN installed 
-- Install tensorflow-gpu, we tested 1.12.0 and 1.13.0rc0 
+- Assume you already have NVIDIA GPU and CUDA CuDNN installed
+- Install tensorflow-gpu, we tested 1.12.0 and 1.13.0rc0
 - Install scikit-image==0.14.5, other versions may cause problems
+
+
+### Docker
+
+You can run the cartoonization using Docker without installing any dependencies locally.
+
+#### Build the Docker image
+
+```bash
+docker build --platform linux/amd64 -t whitebox-cartoonization:latest .
+```
+
+#### Run with default test images
+
+```bash
+docker run --rm --platform linux/amd64 whitebox-cartoonization:latest
+```
+
+#### Run with custom images
+
+Mount your input and output directories as volumes:
+
+```bash
+docker run --rm --platform linux/amd64 \
+  -v /path/to/your/images:/app/test_code/test_images \
+  -v /path/to/output:/app/test_code/cartoonized_images \
+  whitebox-cartoonization:latest
+```
+
+#### Docker environment details
+
+- **Base image:** tensorflow/tensorflow:1.15.5-py3 (Ubuntu 18.04)
+- **Python:** 3.6
+- **TensorFlow:** 1.15.5
+- **Platform:** linux/amd64 (works on Apple Silicon via emulation)
 
 
 ### Inference with Pre-trained Model
