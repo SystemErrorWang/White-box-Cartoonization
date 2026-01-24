@@ -64,14 +64,14 @@ class Vgg19:
         return self.conv4_4
 
     def max_pool(self, bottom, name):
-        return tf.nn.max_pool(bottom, ksize=[1, 2, 2, 1], 
+        return tf.nn.max_pool2d(input=bottom, ksize=[1, 2, 2, 1], 
                     strides=[1, 2, 2, 1], padding='SAME', name=name)
 
     def conv_layer(self, bottom, name):
-        with tf.variable_scope(name):
+        with tf.compat.v1.variable_scope(name):
             filt = self.get_conv_filter(name)
 
-            conv = tf.nn.conv2d(bottom, filt, [1, 1, 1, 1], padding='SAME')
+            conv = tf.nn.conv2d(input=bottom, filters=filt, strides=[1, 1, 1, 1], padding='SAME')
 
             conv_biases = self.get_bias(name)
             bias = tf.nn.bias_add(conv, conv_biases)
@@ -82,7 +82,7 @@ class Vgg19:
 
 
     def fc_layer(self, bottom, name):
-        with tf.variable_scope(name):
+        with tf.compat.v1.variable_scope(name):
             shape = bottom.get_shape().as_list()
             dim = 1
             for d in shape[1:]:
@@ -113,10 +113,10 @@ def vggloss_4_4(image_a, image_b):
     vgg_model = Vgg19('vgg19_no_fc.npy')
     vgg_a = vgg_model.build_conv4_4(image_a)
     vgg_b = vgg_model.build_conv4_4(image_b)
-    VGG_loss = tf.losses.absolute_difference(vgg_a, vgg_b)
+    VGG_loss = tf.compat.v1.losses.absolute_difference(vgg_a, vgg_b)
     #VGG_loss = tf.nn.l2_loss(vgg_a - vgg_b)
     h, w, c= vgg_a.get_shape().as_list()[1:]
-    VGG_loss = tf.reduce_mean(VGG_loss)/(h*w*c)
+    VGG_loss = tf.reduce_mean(input_tensor=VGG_loss)/(h*w*c)
     return VGG_loss
 
 
@@ -126,21 +126,21 @@ def wgan_loss(discriminator, real, fake, patch=True,
     real_logits = discriminator(real, patch=patch, channel=channel, name=name, reuse=False)
     fake_logits = discriminator(fake, patch=patch, channel=channel, name=name, reuse=True)
 
-    d_loss_real = - tf.reduce_mean(real_logits)
-    d_loss_fake = tf.reduce_mean(fake_logits)
+    d_loss_real = - tf.reduce_mean(input_tensor=real_logits)
+    d_loss_fake = tf.reduce_mean(input_tensor=fake_logits)
 
     d_loss = d_loss_real + d_loss_fake
     g_loss = - d_loss_fake
 
     """ Gradient Penalty """
     # This is borrowed from https://github.com/kodalinaveen3/DRAGAN/blob/master/DRAGAN.ipynb
-    alpha = tf.random_uniform([tf.shape(real)[0], 1, 1, 1], minval=0.,maxval=1.)
+    alpha = tf.random.uniform([tf.shape(input=real)[0], 1, 1, 1], minval=0.,maxval=1.)
     differences = fake - real # This is different from MAGAN
     interpolates = real + (alpha * differences)
     inter_logit = discriminator(interpolates, channel=channel, name=name, reuse=True)
-    gradients = tf.gradients(inter_logit, [interpolates])[0]
-    slopes = tf.sqrt(tf.reduce_sum(tf.square(gradients), reduction_indices=[1]))
-    gradient_penalty = tf.reduce_mean((slopes - 1.) ** 2)
+    gradients = tf.gradients(ys=inter_logit, xs=[interpolates])[0]
+    slopes = tf.sqrt(tf.reduce_sum(input_tensor=tf.square(gradients), axis=[1]))
+    gradient_penalty = tf.reduce_mean(input_tensor=(slopes - 1.) ** 2)
     d_loss += lambda_ * gradient_penalty
     
     return d_loss, g_loss
@@ -154,8 +154,8 @@ def gan_loss(discriminator, real, fake, scale=1,channel=32, patch=False, name='d
     real_logit = tf.nn.sigmoid(real_logit)
     fake_logit = tf.nn.sigmoid(fake_logit)
     
-    g_loss_blur = -tf.reduce_mean(tf.log(fake_logit)) 
-    d_loss_blur = -tf.reduce_mean(tf.log(real_logit) + tf.log(1. - fake_logit))
+    g_loss_blur = -tf.reduce_mean(input_tensor=tf.math.log(fake_logit)) 
+    d_loss_blur = -tf.reduce_mean(input_tensor=tf.math.log(real_logit) + tf.math.log(1. - fake_logit))
 
     return d_loss_blur, g_loss_blur
 
@@ -167,8 +167,8 @@ def lsgan_loss(discriminator, real, fake, scale=1,
     real_logit = discriminator(real, scale, channel, name=name, patch=patch, reuse=False)
     fake_logit = discriminator(fake, scale, channel, name=name, patch=patch, reuse=True)
 
-    g_loss = tf.reduce_mean((fake_logit - 1)**2)
-    d_loss = 0.5*(tf.reduce_mean((real_logit - 1)**2) + tf.reduce_mean(fake_logit**2))
+    g_loss = tf.reduce_mean(input_tensor=(fake_logit - 1)**2)
+    d_loss = 0.5*(tf.reduce_mean(input_tensor=(real_logit - 1)**2) + tf.reduce_mean(input_tensor=fake_logit**2))
 
     return d_loss, g_loss
 
@@ -176,8 +176,8 @@ def lsgan_loss(discriminator, real, fake, scale=1,
 
 def total_variation_loss(image, k_size=1):
     h, w = image.get_shape().as_list()[1:3]
-    tv_h = tf.reduce_mean((image[:, k_size:, :, :] - image[:, :h - k_size, :, :])**2)
-    tv_w = tf.reduce_mean((image[:, :, k_size:, :] - image[:, :, :w - k_size, :])**2)
+    tv_h = tf.reduce_mean(input_tensor=(image[:, k_size:, :, :] - image[:, :h - k_size, :, :])**2)
+    tv_w = tf.reduce_mean(input_tensor=(image[:, :, k_size:, :] - image[:, :, :w - k_size, :])**2)
     tv_loss = (tv_h + tv_w)/(3*h*w)
     return tv_loss
 
@@ -188,4 +188,3 @@ if __name__ == '__main__':
     pass
 
 
-    
