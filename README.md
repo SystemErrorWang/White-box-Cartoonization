@@ -131,6 +131,7 @@ We are grateful for the help from Lvmin Zhang and Style2Paints Research
 
 If you use this code for your research, please cite our [paper](https://systemerrorwang.github.io/White-box-Cartoonization/):
 
+```BibTex
 @InProceedings{Wang_2020_CVPR,
 author = {Wang, Xinrui and Yu, Jinze},
 title = {Learning to Cartoonize Using White-Box Cartoon Representations},
@@ -138,7 +139,7 @@ booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVP
 month = {June},
 year = {2020}
 }
-
+```
 
 # 中文社区
 
